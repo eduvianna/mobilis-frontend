@@ -82,8 +82,8 @@ export default function DataCard({ sensor_id, word, infoSensor }) {
   return (
     <Container>
       <Card>
+        <MdDeveloperBoard size={48} />
         <div>
-          <MdDeveloperBoard size={48} />
           <strong>{infoSensor.name}</strong>
           <span>{infoSensor.type}</span>
         </div>

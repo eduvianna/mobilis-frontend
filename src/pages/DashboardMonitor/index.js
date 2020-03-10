@@ -21,7 +21,6 @@ export default function DashboardMonitoramento() {
   useEffect(() => {
     async function loadSensors() {
       const response = await api.get('list-sensors');
-      const collapses = [];
       response.data.map(async element => {
         const words = await api.get('list-words', {
           params: { sensor_id: element.sensor_id },

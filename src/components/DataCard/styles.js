@@ -20,7 +20,7 @@ export const Card = styled.div`
   div {
     text-align: left;
     max-width: 120px;
-    margin-left: -10px;
+    width: 120px;
 
     strong {
       display: block;
@@ -38,6 +38,9 @@ export const Card = styled.div`
     color: rgba(0, 0, 0, 0.7);
   }
   > strong {
+    text-align: right;
+    width: 70px;
+    max-width: 70px;
     display: block;
     font-size: 28px;
     color: #00ab66;
