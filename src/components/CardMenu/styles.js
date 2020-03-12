@@ -54,6 +54,7 @@ export const Menu = styled.div`
       color: #fff;
       font-size: 16px;
       font-weight: bold;
+      text-decoration: none;
     }
 
     &:hover {

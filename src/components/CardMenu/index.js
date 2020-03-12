@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Container, Header, Menu } from './styles';
 
@@ -14,9 +15,15 @@ export default function CardMenu() {
       </Header>
       <Menu>
         <h1>Bem Vindo ao sistema de Monitoramento Mobilis.</h1>
-        <button type="button">Monitoramento</button>
-        <button type="button">Histórico Alarmes</button>
-        <button type="button">Relatórios</button>
+        <button type="button">
+          <Link to="/monitoramento">Monitoramento</Link>
+        </button>
+        <button type="button">
+          <Link to="/alarme">Histórico Alarmes</Link>
+        </button>
+        <button type="button">
+          <Link to="/relatorio">Relatórios</Link>
+        </button>
       </Menu>
     </Container>
   );
