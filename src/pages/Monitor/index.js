@@ -68,7 +68,8 @@ export default function DashboardMonitoramento() {
                       <DataCard
                         sensor_id={word.sensor_id}
                         word={word.word}
-                        infoSensor={{ name: element.name, type: element.type }}
+                        name={word.name}
+                        type={element.type}
                       />
                     ))}
                 </CardBody>

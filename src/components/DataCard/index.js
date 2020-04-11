@@ -55,7 +55,7 @@ function checkLastUpdate(date, compareDate) {
     : `Atualizado há ${lastUpdate} ano`;
 }
 
-export default function DataCard({ sensor_id, word, infoSensor }) {
+export default function DataCard({ sensor_id, word, name, type }) {
   const [sensor, setSensor] = useState({ created_at: '' });
 
   useEffect(() => {
@@ -84,8 +84,8 @@ export default function DataCard({ sensor_id, word, infoSensor }) {
       <Card>
         <MdDeveloperBoard size={48} />
         <div>
-          <strong>{infoSensor.name}</strong>
-          <span>{infoSensor.type}</span>
+          <strong>{name}</strong>
+          <span>{type}</span>
         </div>
 
         <strong>{sensor.value ? sensor.value : 'NaN'}</strong>
@@ -101,6 +101,6 @@ export default function DataCard({ sensor_id, word, infoSensor }) {
 DataCard.propTypes = {
   sensor_id: PropTypes.number.isRequired,
   word: PropTypes.number.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  infoSensor: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };
