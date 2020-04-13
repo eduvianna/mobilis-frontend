@@ -68,7 +68,7 @@ export const ContentForm = styled.div`
       font-weight: bold;
       color: #fff;
       border: 0;
-      border-raadius: 4px;
+      border-radius: 4px;
       font-size: 16px;
       padding: 0 15px;
       transition: background 0.2s;
@@ -92,6 +92,13 @@ export const CardTableAlarm = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 0.375rem;
   background-color: #fff;
-  backgroun-clip: border-box;
+  background-clip: border-box;
   box-shadow: 0 0rem 1rem rgba(0, 0, 0, 0.05);
+`;
+
+export const Divider = styled.div`
+  margin-top: 50px;
+  width: 80%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
 `;

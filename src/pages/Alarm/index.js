@@ -13,7 +13,13 @@ import api from '~/services/api';
 import CardMenu from '~/components/CardMenu';
 import AlarmTable from './AlarmTable';
 
-import { Container, Content, CardTableAlarm, ContentForm } from './styles';
+import {
+  Container,
+  Content,
+  CardTableAlarm,
+  ContentForm,
+  Divider,
+} from './styles';
 
 export default function DashboardAlarm() {
   const [sensors, setSensors] = useState([]);
@@ -30,14 +36,17 @@ export default function DashboardAlarm() {
     }
     setContentAlarm(null);
     setContentAlarm(
-      <CardTableAlarm>
-        <AlarmTable
-          sensor_id={sensor_id}
-          word={Number(word)}
-          startDay={startDay}
-          endDay={endDay}
-        />
-      </CardTableAlarm>
+      <>
+        <Divider />
+        <CardTableAlarm>
+          <AlarmTable
+            sensor_id={sensor_id}
+            word={Number(word)}
+            startDay={startDay}
+            endDay={endDay}
+          />
+        </CardTableAlarm>
+      </>
     );
   }
 
@@ -80,7 +89,7 @@ export default function DashboardAlarm() {
       <Container>
         <CardMenu />
         <Content>
-          <h1>Carro Mobilis - Histórido de Alarmes</h1>
+          <h1>Carro Mobilis - Histórico de Alarmes</h1>
           <ContentForm>
             <Form onSubmit={handleSubmit}>
               <Select

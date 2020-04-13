@@ -4,7 +4,7 @@ import { darken } from 'polished';
 export const Container = styled.div`
   min-width: 35vw;
   min-height: 100vh;
-  background: rgba(166, 208, 98, 0.3);
+  background: rgba(166, 208, 98, 0.4);
   position: -webkit-sticky;
   position: sticky;
   top: 0;

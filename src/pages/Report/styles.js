@@ -97,3 +97,10 @@ export const CardChart = styled.div`
   background-clip: border-box;
   box-shadow: 0 0rem 1rem rgba(0, 0, 0, 0.05);
 `;
+
+export const Divider = styled.div`
+  margin-top: 50px;
+  width: 80%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+`;

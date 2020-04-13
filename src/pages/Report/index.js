@@ -13,7 +13,7 @@ import api from '~/services/api';
 import CardMenu from '~/components/CardMenu';
 import Chart from './Chart';
 
-import { Container, Content, CardChart, ContentForm } from './styles';
+import { Container, Content, CardChart, ContentForm, Divider } from './styles';
 
 export default function Report() {
   const [sensors, setSensors] = useState([]);
@@ -31,14 +31,17 @@ export default function Report() {
     }
 
     setReport(
-      <CardChart>
-        <Chart
-          sensor_id={sensor_id}
-          word={Number(word)}
-          startDay={startDay}
-          endDay={endDay}
-        />
-      </CardChart>
+      <>
+        <Divider />
+        <CardChart>
+          <Chart
+            sensor_id={sensor_id}
+            word={Number(word)}
+            startDay={startDay}
+            endDay={endDay}
+          />
+        </CardChart>
+      </>
     );
   }
 
