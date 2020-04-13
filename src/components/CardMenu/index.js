@@ -1,5 +1,4 @@
 import React from 'react';
-import { MdArrowBack } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 import { Container, Header, Menu } from './styles';
