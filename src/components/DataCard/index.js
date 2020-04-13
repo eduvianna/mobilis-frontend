@@ -12,10 +12,15 @@ import {
 import { utcToZonedTime } from 'date-fns-tz';
 import { MdDeveloperBoard } from 'react-icons/md';
 
-import api from '~/services/api';
+import api from '~/services/api'; // Configurações API
 
 import { Container, Card, InfoTime } from './styles';
 
+/**
+ * Função tem como objetivo realizar comparações entre a data atual
+ *  e a data de quando foi realizado a medida para que assim possa se criar
+ * um texto identificando o tempo passado desde a ultima medida
+ */
 function checkLastUpdate(date, compareDate) {
   let lastUpdate = differenceInYears(date, compareDate);
   if (lastUpdate === 0) {
@@ -56,9 +61,13 @@ function checkLastUpdate(date, compareDate) {
 }
 
 export default function DataCard({ sensor_id, word, name, type }) {
-  const [sensor, setSensor] = useState({ created_at: '' });
+  const [sensor, setSensor] = useState({ created_at: '' }); // Definição do estado dos sensores
 
+  //
   useEffect(() => {
+    /**
+     * Função timer que tem como objetivo pegar medidas dos sensores a cada 3s
+     */
     const timer = setInterval(() => {
       api
         .get('list-measurements', { params: { sensor_id, word } })
@@ -99,7 +108,7 @@ export default function DataCard({ sensor_id, word, name, type }) {
 }
 
 DataCard.propTypes = {
-  sensor_id: PropTypes.number.isRequired,
+  sensor_id: PropTypes.string.isRequired,
   word: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,

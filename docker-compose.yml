@@ -3,12 +3,15 @@ version: '3.7'
 services:
   app:
     container_name: 'mobilis-frontend'
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
-      - '.:/usr/app'
+      - '.:/app'
+      - '/app/node_modules'
     ports:
-      - '3000:3000'
+      - '3001:3000'
     environment:
       - NODE_ENV=development
-    command: yarn dev
+      - CHOKIDAR_USEPOLLING=true
     restart: always
