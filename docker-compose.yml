@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  app:
+    container_name: 'mobilis-frontend'
+    build: .
+    volumes:
+      - '.:/usr/app'
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+    command: yarn dev
+    restart: always
