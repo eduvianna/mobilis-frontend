@@ -23,7 +23,7 @@ export default function Chart({ sensor_id, word, startDay, endDay }) {
       setDatas([]);
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
       const start = startDay.set({ hour: 0, minute: 0, second: 0 }).toDate();
-      const end = endDay.set({ hour: 0, minute: 0, second: 0 }).toDate();
+      const end = endDay.set({ hour: 23, minute: 59, second: 59 }).toDate();
 
       const response = await api.get('list-measurements', {
         params: { sensor_id: sensor, word: sensorWord },
@@ -46,7 +46,6 @@ export default function Chart({ sensor_id, word, startDay, endDay }) {
                 return Number(a) + Number(b);
               }) / response.data.measurements.length,
         });
-
         // eslint-disable-next-line array-callback-return
         response.data.measurements.map(element => {
           element.x = utcToZonedTime(element.created_at, timezone);
@@ -66,7 +65,6 @@ export default function Chart({ sensor_id, word, startDay, endDay }) {
           }
           return false;
         });
-
         if (sensorValues.length > 0) {
           setDatas(sensorValues);
         } else {
@@ -80,8 +78,7 @@ export default function Chart({ sensor_id, word, startDay, endDay }) {
     }
 
     getMeasurements(sensor_id, word);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [startDay, endDay]);
+  }, [startDay, endDay, sensor_id, word]);
   return (
     datas.length > 0 && (
       <>

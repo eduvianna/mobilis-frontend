@@ -8,10 +8,10 @@ import moment from 'moment';
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
 
-import Chart from './Chart';
 import api from '../../services/api';
 
 import CardMenu from '../../components/CardMenu';
+import Chart from './Chart';
 
 import { Container, Content, CardChart } from './styles';
 
@@ -26,19 +26,10 @@ export default function Report() {
 
   function handleSubmit({ sensor_id, word }) {
     setReport(null);
-    if (!sensor_id && !word) {
-      toast.error('Escolha do ID do sensor necessário');
-
-      return toast.error('Escolha do sensor especifico necessário');
+    if (!sensor_id || !word || !startDay || !endDay) {
+      return toast.error('Todos os campos precisam ser preenchidos');
     }
 
-    if (!sensor_id) {
-      return toast.error('Escolha do sensor especifico necessário');
-    }
-
-    if (!word) {
-      return toast.error('Escolha do ID do sensor necessário');
-    }
     setReport(
       <CardChart>
         <Chart

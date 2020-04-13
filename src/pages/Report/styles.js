@@ -37,7 +37,7 @@ export const Content = styled.div`
       height: 44px;
       padding: 0 15px;
       color: #000;
-      margin: 5px;
+      margin: 0 8px;
       font-size: 16px;
       width: 23%;
 
@@ -47,7 +47,6 @@ export const Content = styled.div`
     }
 
     button {
-      margin: 5px 0 0;
       height: 44px;
       background: #3b9eff;
       font-weight: bold;
@@ -80,5 +79,3 @@ export const CardChart = styled.div`
   background-clip: border-box;
   box-shadow: 0 0rem 1rem rgba(0, 0, 0, 0.05);
 `;
-
-export const Card = styled.div``;
