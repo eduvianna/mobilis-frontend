@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable array-callback-return */
 import React, { useState, useEffect } from 'react';
 import { Form, Select, Scope } from '@rocketseat/unform';
@@ -7,12 +8,12 @@ import { toast } from 'react-toastify';
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
 
-import api from '../../services/api';
+import api from '~/services/api';
 
-import CardMenu from '../../components/CardMenu';
+import CardMenu from '~/components/CardMenu';
 import AlarmTable from './AlarmTable';
 
-import { Container, Content, CardTableAlarm } from './styles';
+import { Container, Content, CardTableAlarm, ContentForm } from './styles';
 
 export default function DashboardAlarm() {
   const [sensors, setSensors] = useState([]);
@@ -79,36 +80,39 @@ export default function DashboardAlarm() {
       <Container>
         <CardMenu />
         <Content>
-          <Form onSubmit={handleSubmit}>
-            <Select
-              name="sensor_id"
-              options={sensors}
-              onChange={option =>
-                option.target.value && getAlarms(option.target.value)
-              }
-            />
-            <Select name="word" disabled={disabled} options={alarms} />
-            <Scope path="date">
-              <DateRangePicker
-                isOutsideRange={() => false}
-                startDate={startDay}
-                startDateId="start_date"
-                startDatePlaceholderText="Data Inicio"
-                minimumNights={0}
-                endDate={endDay}
-                endDateId="end_date"
-                endDatePlaceholderText="Data Final"
-                onDatesChange={({ startDate, endDate }) => {
-                  setStartDay(startDate);
-                  setEndDay(endDate);
-                }}
-                focusedInput={focusInput}
-                onFocusChange={focusedInput => setFocusInput(focusedInput)}
-                displayFormat="DD/MM/YYYY"
+          <h1>Carro Mobilis - Histórido de Alarmes</h1>
+          <ContentForm>
+            <Form onSubmit={handleSubmit}>
+              <Select
+                name="sensor_id"
+                options={sensors}
+                onChange={option =>
+                  option.target.value && getAlarms(option.target.value)
+                }
               />
-            </Scope>
-            <button type="submit">Buscar</button>
-          </Form>
+              <Select name="word" disabled={disabled} options={alarms} />
+              <Scope path="date">
+                <DateRangePicker
+                  isOutsideRange={() => false}
+                  startDate={startDay}
+                  startDateId="start_date"
+                  startDatePlaceholderText="Data Inicio"
+                  minimumNights={0}
+                  endDate={endDay}
+                  endDateId="end_date"
+                  endDatePlaceholderText="Data Final"
+                  onDatesChange={({ startDate, endDate }) => {
+                    setStartDay(startDate);
+                    setEndDay(endDate);
+                  }}
+                  focusedInput={focusInput}
+                  onFocusChange={focusedInput => setFocusInput(focusedInput)}
+                  displayFormat="DD/MM/YYYY"
+                />
+              </Scope>
+              <button type="submit">Buscar</button>
+            </Form>
+          </ContentForm>
           {contentAlarm}
         </Content>
       </Container>

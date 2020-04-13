@@ -25,45 +25,42 @@ export const Content = styled.div`
   align-items: center;
 
   h1 {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    font-size: 1.8rem;
-    font-weight: 600;
-    line-height: 1.2;
-    color: rgba(0, 0, 0, 0.7);
+    color: rgba(0, 10, 10, 0.8);
+    font-size: 38px;
+    line-height: 1.5;
+    font-weight: 700;
+    margin: 50px 5px 24px;
+    padding: 10px;
+    font-family: 'Libre Baskerville', serif;
   }
 
   h2 {
     margin: 60px 120px;
-    font-size: 1.4rem;
+    font-size: 26px;
     font-weight: 300;
     line-height: 1.4;
-    color: #6c757d;
+    color: rgba(0, 10, 10, 0.8);
+    font-family: 'Libre Baskerville', serif;
   }
 
   button {
-    max-width: 196px;
+    max-width: 260px;
     margin: 10px 0 0;
-    padding: 10px;
-    height: 48px;
-    background: #3b9eff;
-    font-weight: bold;
+    padding: 10px 20px;
+    height: 64px;
+    background: ${darken(0.02, '#3b9e')};
     color: #fff;
     border: 0;
-    border-radius: 40px;
-    font-size: 16px;
+    border-radius: 10px;
     transition: background 0.2s;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-
-    a {
-      color: #fff;
-      font-size: 16px;
-      font-weight: bold;
-      text-decoration: none;
-    }
+    color: #fff;
+    font-size: 22px;
+    font-weight: 400;
+    text-decoration: none;
 
     &:hover {
-      background: ${darken(0.03, '#3b9eff')};
+      background: ${darken(0.1, '#3b9e')};
     }
   }
 `;

@@ -6,7 +6,7 @@ import { Line } from '@nivo/line';
 import { isBefore, isAfter, isEqual, format } from 'date-fns';
 import { utcToZonedTime } from 'date-fns-tz';
 
-import api from '../../../services/api';
+import api from '~/services/api';
 
 import { Container, Card, InfoCard, InfoTime } from './styles';
 

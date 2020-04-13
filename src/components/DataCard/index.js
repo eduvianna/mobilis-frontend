@@ -12,7 +12,7 @@ import {
 import { utcToZonedTime } from 'date-fns-tz';
 import { MdDeveloperBoard } from 'react-icons/md';
 
-import api from '../../services/api';
+import api from '~/services/api';
 
 import { Container, Card, InfoTime } from './styles';
 

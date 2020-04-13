@@ -8,6 +8,7 @@ export const Container = styled.div`
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  box-shadow: 0 0rem 2rem rgba(0, 0, 0, 0.1);
 `;
 
 export const Header = styled.div`

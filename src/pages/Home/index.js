@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 import { Container, Header, Content } from './styles';
 
-import logo_satc from '../../assets/logo-satc-horizontal.png';
-import logo_mobilis from '../../assets/logo-mobilis.png';
+import logo_satc from '~/assets/logo-satc-horizontal.png';
+import logo_mobilis from '~/assets/logo-mobilis.png';
 
 export default function Home() {
   return (
@@ -21,9 +21,11 @@ export default function Home() {
         por completo de um carro elétrico desenvolvido pela empresa Mobilis.
         Podendo assim que este sistema possa auxiliar em futuras manutenções
       </h2>
-      <button type="button">
-        <Link to="/monitoramento">Iniciar Monitoramento</Link>
-      </button>
+
+      <Link to="/monitoramento">
+        {' '}
+        <button type="button">Iniciar Monitoramento</button>
+      </Link>
     </Content>
   );
 }

@@ -1,10 +1,11 @@
 import React from 'react';
+import { MdArrowBack } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 import { Container, Header, Menu } from './styles';
 
-import logo_satc from '../../assets/logo-satc-horizontal.png';
-import logo_mobilis from '../../assets/logo-mobilis.png';
+import logo_satc from '~/assets/logo-satc-horizontal.png';
+import logo_mobilis from '~/assets/logo-mobilis.png';
 
 export default function CardMenu() {
   return (
@@ -15,15 +16,18 @@ export default function CardMenu() {
       </Header>
       <Menu>
         <h1>Bem Vindo ao sistema de Monitoramento Mobilis.</h1>
-        <button type="button">
-          <Link to="/monitoramento">Monitoramento</Link>
-        </button>
-        <button type="button">
-          <Link to="/alarme">Histórico Alarmes</Link>
-        </button>
-        <button type="button">
-          <Link to="/relatorio">Relatórios</Link>
-        </button>
+
+        <Link to="/monitoramento">
+          <button type="button">Monitoramento</button>
+        </Link>
+
+        <Link to="/alarme">
+          <button type="button">Histórico Alarmes</button>
+        </Link>
+
+        <Link to="/relatorio">
+          <button type="button">Relatórios</button>
+        </Link>
       </Menu>
     </Container>
   );

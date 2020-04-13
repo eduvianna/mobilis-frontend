@@ -9,10 +9,10 @@ import {
   CardHeader,
   CardBody,
 } from './styles';
-import CardMenu from '../../components/CardMenu';
-import DataCard from '../../components/DataCard';
+import CardMenu from '~/components/CardMenu';
+import DataCard from '~/components/DataCard';
 
-import api from '../../services/api';
+import api from '~/services/api';
 
 export default function DashboardMonitoramento() {
   const [openedCollapses, setOpenedCollapses] = useState([]);
@@ -47,6 +47,7 @@ export default function DashboardMonitoramento() {
     <Container>
       <CardMenu />
       <CardMonitoring>
+        <h1>Carro Mobilis - Monitoramento</h1>
         {sensors &&
           sensors.map(element => (
             <Card key={element.sensor_id}>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  align-items: flex-start;
   flex-direction: row;
 `;
 
@@ -81,5 +81,21 @@ export const CardBody = styled.div`
 export const CardMonitoring = styled.div`
   min-width: 65vw;
   min-height: 100vh;
-  background: linear-gradient(147deg, #fdfbfb, #ebedee);
+
+  background: linear-gradient(
+    147deg,
+    rgba(253, 251, 251, 0.9),
+    rgba(235, 237, 238, 0.9)
+  );
+
+  h1 {
+    text-align: center;
+    color: rgba(0, 10, 10, 0.8);
+    font-size: 36px;
+    line-height: 1.5;
+    font-weight: 700;
+    margin: 50px 5px 24px;
+    padding: 10px;
+    font-family: 'Libre Baskerville', serif;
+  }
 `;

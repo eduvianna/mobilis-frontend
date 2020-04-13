@@ -8,7 +8,7 @@ import { utcToZonedTime } from 'date-fns-tz';
 
 import Table from 'react-bootstrap/Table';
 
-import api from '../../../services/api';
+import api from '~/services/api';
 
 import { Container } from './styles';
 

@@ -8,12 +8,12 @@ import moment from 'moment';
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
 
-import api from '../../services/api';
+import api from '~/services/api';
 
-import CardMenu from '../../components/CardMenu';
+import CardMenu from '~/components/CardMenu';
 import Chart from './Chart';
 
-import { Container, Content, CardChart } from './styles';
+import { Container, Content, CardChart, ContentForm } from './styles';
 
 export default function Report() {
   const [sensors, setSensors] = useState([]);
@@ -78,37 +78,41 @@ export default function Report() {
       <Container>
         <CardMenu />
         <Content>
-          <Form onSubmit={handleSubmit}>
-            <Select
-              name="sensor_id"
-              options={sensors}
-              onChange={option =>
-                option.target.value && getWords(option.target.value)
-              }
-            />
-            <Select name="word" disabled={disabled} options={words} />
-            <Scope path="date">
-              <DateRangePicker
-                isOutsideRange={() => false}
-                startDate={startDay}
-                startDateId="start_date"
-                startDatePlaceholderText="Data Inicio"
-                minimumNights={0}
-                endDate={endDay}
-                endDateId="end_date"
-                endDatePlaceholderText="Data Final"
-                onDatesChange={({ startDate, endDate }) => {
-                  setStartDay(startDate);
-                  setEndDay(endDate);
-                }}
-                focusedInput={focusInput}
-                onFocusChange={focusedInput => setFocusInput(focusedInput)}
-                displayFormat="DD/MM/YYYY"
+          <h1>Carro Mobilis - Relatórios</h1>
+          <ContentForm>
+            <Form onSubmit={handleSubmit}>
+              <Select
+                name="sensor_id"
+                options={sensors}
+                onChange={option =>
+                  option.target.value && getWords(option.target.value)
+                }
               />
-            </Scope>
+              <Select name="word" disabled={disabled} options={words} />
+              <Scope path="date">
+                <DateRangePicker
+                  isOutsideRange={() => false}
+                  startDate={startDay}
+                  startDateId="start_date"
+                  startDatePlaceholderText="Data Inicio"
+                  minimumNights={0}
+                  endDate={endDay}
+                  endDateId="end_date"
+                  endDatePlaceholderText="Data Final"
+                  onDatesChange={({ startDate, endDate }) => {
+                    setStartDay(startDate);
+                    setEndDay(endDate);
+                  }}
+                  focusedInput={focusInput}
+                  onFocusChange={focusedInput => setFocusInput(focusedInput)}
+                  displayFormat="DD/MM/YYYY"
+                />
+              </Scope>
 
-            <button type="submit">Gerar Relatório</button>
-          </Form>
+              <button type="submit">Gerar Relatório</button>
+            </Form>
+          </ContentForm>
+
           {report}
         </Content>
       </Container>
