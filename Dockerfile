@@ -1,15 +1,16 @@
-FROM node:alpine
-
+# build environment
+FROM node:13.12.0-alpine as build
 WORKDIR /app
-
 ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json ./
+COPY yarn.lock ./
+RUN yarn install
+RUN yarn add react-scripts@3.4.1 global
+COPY . ./
+RUN yarn run build
 
-COPY package.json ./app/package.json
-
-
-RUN yarn
-RUN yarn add global react-scripts@3.4.1 react-app-rewired customize-cra
-
-COPY . ./app
-
-CMD ["yarn", "start"]
+# production environment
+FROM nginx:stable-alpine
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
