@@ -9,3 +9,9 @@ services:
     ports:
       - '1337:80'
     restart: always
+    networks:
+      - network_mobilis
+
+networks:
+  network_mobilis:
+    name: network_mobilis
