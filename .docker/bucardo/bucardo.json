@@ -1,0 +1,26 @@
+{
+  "databases": [
+    {
+      "id": 1,
+      "dbname": "mobilis",
+      "host": "mobilis-postgres",
+      "user": "mobilis",
+      "pass": "mobilis"
+    },
+    {
+      "id": 2,
+      "dbname": "mobilis",
+      "host": "192.168.0.111",
+      "user": "mobilis",
+      "pass": "mobilis"
+    }
+  ],
+  "syncs": [
+    {
+      "sources": [1],
+      "targets": [2],
+      "tables": "sensors,word,measurements",
+      "onetimecopy": 2
+    }
+  ]
+}

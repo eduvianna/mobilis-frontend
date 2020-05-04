@@ -1,16 +1,27 @@
 version: '3.7'
 
 services:
-  sample-prod:
-    container_name: sample-prod
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - '1337:80'
+  #sample-prod:
+  #  container_name: sample-prod
+  #  build:
+  #    context: .
+  #    dockerfile: Dockerfile
+  #  ports:
+  #    - '1337:80'
+  #  restart: always
+  #  networks:
+  #    - network_mobilis
+
+  bucardo:
+    image: jefftian/bucardo
+    container_name: bucardo-mobilis
     restart: always
+    ports:
+      - '5433:5432'
     networks:
       - network_mobilis
+    volumes:
+      - .docker/bucardo:/media/bucardo
 
 networks:
   network_mobilis:
