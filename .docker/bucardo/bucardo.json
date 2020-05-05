@@ -17,10 +17,10 @@
   ],
   "syncs": [
     {
-      "sources": [1],
-      "targets": [2],
+      "sources": [2],
+      "targets": [1],
       "tables": "sensors,word,measurements",
-      "onetimecopy": 2
+      "onetimecopy": 1
     }
   ]
 }

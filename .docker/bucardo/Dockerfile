@@ -6,7 +6,7 @@ LABEL version="1.0"
 ENV PG_VERSION 12
 
 RUN apt-get update \
-  && apt-get -y install software-properties-common wget jq netcat
+  && apt-get -y install software-properties-common wget jq netcat iputils-ping
 
 RUN add-apt-repository \
   "deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main"

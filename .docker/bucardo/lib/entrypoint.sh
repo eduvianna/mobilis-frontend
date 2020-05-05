@@ -183,30 +183,37 @@ start_bucardo() {
 check_network_status() {
   ping -q -c 3 192.168.0.111 > /dev/null
 
-  while [ $? -ne 0 ]; do
-    sleep 10
+  while [[ $? -ne 0 ]]; do
+    run_bucardo_command "status"
+    sleep 5
   done
 
-  bucardo update sync sync0 onetimecopy=2
-  bucardo update sync sync0 autokick=1
-  bucardo reload config
-  bucardo kick sync0 1
+  if [ $? -eq 0 ]
+  then
+    su - postgres -c "bucardo update sync sync0 onetimecopy=1"
+    su - postgres -c "bucardo update sync sync0 autokick=1"
+    su - postgres -c "bucardo reload config"
+    su - postgres -c "bucardo kick sync0 0"
+  fi
+
 }
 
 network_status() {
-  ping -q -c 3 192.167.0.111 > /dev/null
+  ping -q -c 3 192.168.0.111 > /dev/null
 
   if [ $? -ne 0 ]
   then
-	 check_network_status
+    echo "no connection"
+	  check_network_status
   fi
+
 }
 
 bucardo_status() {
   echo "[CONTAINER] Now, some status for you."
   local run=true
   while [[ $run ]]; do
-    #run_bucardo_command "status"
+    run_bucardo_command "status"
     network_status
     sleep 10
   done
